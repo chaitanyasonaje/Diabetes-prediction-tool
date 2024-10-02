@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<script>
+document.querySelector('form').addEventListener('submit', function() {
+    document.querySelector('.container').insertAdjacentHTML('beforeend', '<div class="loader"></div>');
+});
+</script>
+
+    <div class="container fade-in">
+        <h2>Diabetes Detection</h2>
+        <form action="/predict" method="POST" class="form">
+            <div class="form-group">
+                <label>Pregnancies:</label>
+                <input type="number" name="pregnancies" required>
+            </div>
+            <div class="form-group">
+                <label>Glucose:</label>
+                <input type="number" step="0.1" name="glucose" required>
+            </div>
+            <div class="form-group">
+                <label>Blood Pressure:</label>
+                <input type="number" step="0.1" name="blood_pressure" required>
+            </div>
+            <div class="form-group">
+                <label>Skin Thickness:</label>
+                <input type="number" step="0.1" name="skin_thickness" required>
+            </div>
+            <div class="form-group">
+                <label>Insulin:</label>
+                <input type="number" step="0.1" name="insulin" required>
+            </div>
+            <div class="form-group">
+                <label>BMI:</label>
+                <input type="number" step="0.1" name="bmi" required>
+            </div>
+            <div class="form-group">
+                <label>Diabetes Pedigree Function:</label>
+                <input type="number" step="0.1" name="diabetes_pedigree" required>
+            </div>
+            <div class="form-group">
+                <label>Age:</label>
+                <input type="number" name="age" required>
+            </div>
+            <button type="submit" class="btn">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+        <h3 class="result">{{ prediction_text }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
