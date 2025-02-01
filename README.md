@@ -42,7 +42,7 @@ The **Diabetes Detection Website** is a machine learning-based web application t
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/chaitanyasonaje/diabetes-detection-website.git
+   git clone https://github.com/chaitanyasonaje/diabetes-prediction-tool.git
    ```
    
 2. **Navigate to the Project Directory**:
